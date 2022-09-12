@@ -12,11 +12,11 @@ import java.util.Set;
 @Table(name = "recipe")
 public class RecipeEntity {
 
-    public static final String ID = "ID";
-    public static final String NAME = "NAME";
-    public static final String IS_VEGETARIAN = "IS_VEGETARIAN";
-    public static final String SERVINGS = "SERVINGS";
-    public static final String INSTRUCTIONS = "INSTRUCTIONS";
+    public static final String ID = "id";
+    public static final String NAME = "name";
+    public static final String IS_VEGETARIAN = "vegetarian";
+    public static final String SERVINGS = "servings";
+    public static final String INSTRUCTIONS = "instructions";
 
     @Id
     @Column(name = ID)

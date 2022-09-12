@@ -11,7 +11,7 @@ create table recipe (
     instructions varchar(255),
     name varchar(255),
     servings integer,
-    is_vegetarian boolean,
+    vegetarian boolean,
     primary key (id)
 );
 

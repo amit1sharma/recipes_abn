@@ -20,3 +20,20 @@ insert into ingredients (id, name ) values
     (19, 'Sunflower Oil'),
     (20, 'Egg'),
     (21, 'Sugar');
+
+
+insert into recipe (instructions, name, servings, vegetarian, id) values ('Fry', 'R1', 1, true, 111);
+insert into recipe_ingredients (recipes_id, ingredients_id) values (111, 1);
+
+insert into recipe (instructions, name, servings, vegetarian, id) values ('Oven', 'R2', 2, true, 112);
+insert into recipe_ingredients (recipes_id, ingredients_id) values (112, 1);
+insert into recipe_ingredients (recipes_id, ingredients_id) values (112, 2);
+
+insert into recipe (instructions, name, servings, vegetarian, id) values ('Fry', 'R3', 3, true, 113);
+insert into recipe_ingredients (recipes_id, ingredients_id) values (113, 1);
+insert into recipe_ingredients (recipes_id, ingredients_id) values (113, 2);
+insert into recipe_ingredients (recipes_id, ingredients_id) values (113, 3);
+
+insert into recipe (instructions, name, servings, vegetarian, id) values ('Oven', 'R4', 2, true, 114);
+insert into recipe_ingredients (recipes_id, ingredients_id) values (114, 3);
+insert into recipe_ingredients (recipes_id, ingredients_id) values (114, 2);

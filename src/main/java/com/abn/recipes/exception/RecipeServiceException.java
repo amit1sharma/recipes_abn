@@ -1,5 +1,8 @@
 package com.abn.recipes.exception;
 
+/**
+ * Custom exception class
+ */
 public class RecipeServiceException extends RuntimeException {
 
     private String errorCode;

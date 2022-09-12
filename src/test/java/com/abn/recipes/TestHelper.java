@@ -1,23 +1,45 @@
-package com.abn.recipes.mapper;
+package com.abn.recipes;
 
 import com.abn.recipes.dto.RecipeDto;
 import com.abn.recipes.dto.RecipeRequest;
+import com.abn.recipes.dto.RecipeSearchRequest;
 import com.abn.recipes.persistence.entity.IngredientsEntity;
 import com.abn.recipes.persistence.entity.RecipeEntity;
-import org.springframework.stereotype.Component;
 
+import java.util.HashSet;
 import java.util.Set;
 import java.util.stream.Collectors;
 
-@Component
-public class RecipeMapper {
+/**
+ * * @author Amit Sharma
+ **/
+public class TestHelper {
 
-    /**
-     * Map recipe request object into recipe entity
-     * @param recipeRequest
-     * @return
-     */
-    public RecipeEntity getRecipeEntity(RecipeRequest recipeRequest){
+    public static RecipeRequest getRecipeRequest(){
+        RecipeRequest request = new RecipeRequest();
+        request.setRecipeName("Test");
+        request.setInstructions("Test");
+        request.setServings(3);
+        request.setVegetarian(true);
+        Set<Long> ingredients = new HashSet<>();
+        ingredients.add(1l);
+        request.setIngredients(ingredients);
+        return request;
+    }
+
+    public static RecipeSearchRequest getRecipeSearchRequest(){
+        RecipeSearchRequest request = new RecipeSearchRequest();
+        request.setServings(2);
+        request.setVegetarian(true);
+        request.setInstruction("test");
+        request.setPageNo(0);
+        request.setIngredientsSearch(new RecipeSearchRequest.IngredientsSearch());
+        return request;
+    }
+
+    public static RecipeEntity getRecipeEntity(){
+
+        RecipeRequest recipeRequest =  getRecipeRequest();
         Set<IngredientsEntity> ingredientsEntities = recipeRequest.getIngredients()
                 .stream()
                 .map(aLong -> {
@@ -35,12 +57,8 @@ public class RecipeMapper {
         return entity;
     }
 
-    /**
-     * Map recipe entity into recipe DTO
-     * @param recipe
-     * @return
-     */
-    public RecipeDto getRecipeDto(RecipeEntity recipe){
+    public static RecipeDto getRecipeDto(){
+        RecipeEntity recipe = getRecipeEntity();
         RecipeDto dto = new RecipeDto();
         dto.setName(recipe.getName());
         dto.setInstructions(recipe.getInstructions());
@@ -55,5 +73,4 @@ public class RecipeMapper {
         dto.setIngredients(ingredients);
         return dto;
     }
-
 }
